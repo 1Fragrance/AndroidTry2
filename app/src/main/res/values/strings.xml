@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="productsTableHeader">Products</string>
+    <string name="idColumnText">Id</string>
+    <string name="nameColumnText">Name</string>
+    <string name="costColumnText">Cost</string>
+    <string name="typeColumnText">Type</string>
+    <string name="actionsColumnText">Actions</string>
+    <string name="addProductButtonText">Add product</string>
+</resources>
