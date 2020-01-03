@@ -26,7 +26,7 @@ public class ProductRepository {
 
         ContentValues cv = new ContentValues();
         cv.put("name", product.getName());
-        cv.put("typeId", product.getTypeId());
+        cv.put("typeId", product.getType());
         cv.put("cost", product.getCost());
 
         db.insert(this.getDatabaseName(), null, cv);
@@ -46,7 +46,7 @@ public class ProductRepository {
                 product.setId(Integer.parseInt(cursor.getString(0)));
                 product.setName(cursor.getString(1));
                 product.setCost(cursor.getDouble(2));
-                product.setTypeId(cursor.getInt(3));
+                product.setType(cursor.getString(3));
                 products.add(product);
 
             } while (cursor.moveToNext());
@@ -61,7 +61,7 @@ public class ProductRepository {
         SQLiteDatabase db = dbContext.getReadableDatabase();
 
         Cursor cursor = db.query(this.getDatabaseName(),
-                new String[] { DbContext.PRODUCTS_ID, DbContext.PRODUCTS_NAME, DbContext.PRODUCTS_COST, DbContext.PRODUCTS_TYPE_ID },
+                new String[] { DbContext.PRODUCTS_ID, DbContext.PRODUCTS_NAME, DbContext.PRODUCTS_COST, DbContext.PRODUCTS_TYPE },
                 DbContext.PRODUCTS_ID + "= ?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
 
@@ -73,7 +73,7 @@ public class ProductRepository {
         product.setId(cursor.getInt(0));
         product.setName(cursor.getString(1));
         product.setCost(cursor.getDouble(2));
-        product.setTypeId(cursor.getInt(3));
+        product.setType(cursor.getString(3));
 
         cursor.close();
         db.close();
@@ -91,7 +91,7 @@ public class ProductRepository {
 
         ContentValues cv = new ContentValues();
         cv.put("name", product.getName());
-        cv.put("typeId", product.getTypeId());
+        cv.put("typeId", product.getType());
         cv.put("cost", product.getCost());
 
         db.update(this.getDatabaseName(), cv, DbContext.PRODUCTS_ID + " = ?", new String[] { String.valueOf(product.getId()) });

@@ -8,6 +8,9 @@
     <string name="editProductFormTitle">Edit product</string>
     <string name="productNameHint">Product name</string>
     <string name="productCostHint">Product cost</string>
+    <string name="nameValidationMessage">Name field is required</string>
+    <string name="costValidationMessage">Cost field is required and cannot be less than null</string>
+    <string name="productsTableHeader">Products</string>
 
     <array name="productTypes">
         <item>Meat</item>
