@@ -32,10 +32,14 @@ public class MainActivity extends Activity {
         initializeActivityUI();
     }
 
-
     private void initializeActivityUI() {
         productList = db.products.getProducts();
         adapter = new ProductAdapter(this, R.layout.product_row, productList, db);
         productListView.setAdapter(adapter);
+    }
+
+    public void updateActivityUI() {
+        productList = db.products.getProducts();
+        adapter.notifyDataSetChanged();
     }
 }

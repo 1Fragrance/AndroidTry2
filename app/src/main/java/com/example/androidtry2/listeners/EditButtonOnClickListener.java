@@ -1,18 +1,18 @@
 package com.example.androidtry2.listeners;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
+import com.example.androidtry2.activities.MainActivity;
 import com.example.androidtry2.activities.ProjectEditFormActivity;
 import com.example.androidtry2.data.DbContext;
 
 public class EditButtonOnClickListener implements View.OnClickListener {
 
-    private Activity context;
+    private MainActivity context;
     private int productId;
 
-    public EditButtonOnClickListener(Activity context, int productId) {
+    public EditButtonOnClickListener(MainActivity context, int productId) {
         this.productId = productId;
         this.context = context;
     }

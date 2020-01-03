@@ -1,6 +1,5 @@
 package com.example.androidtry2.adapters;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.androidtry2.R;
+import com.example.androidtry2.activities.MainActivity;
 import com.example.androidtry2.data.DbDataSource;
+import com.example.androidtry2.listeners.DeleteButtonOnClickListener;
 import com.example.androidtry2.listeners.EditButtonOnClickListener;
 import com.example.androidtry2.models.Product;
 
@@ -19,11 +20,11 @@ import java.util.List;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
 
-    private Activity context;
+    private MainActivity context;
     private List<Product> products;
     private DbDataSource db;
 
-    public ProductAdapter(Activity context, int listLayoutId, List<Product> products, DbDataSource db) {
+    public ProductAdapter(MainActivity context, int listLayoutId, List<Product> products, DbDataSource db) {
         super(context, listLayoutId, products);
 
         this.context = context;
@@ -70,13 +71,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         vh.productTypeTextView.setText(products.get(position).getType());
 
         vh.editBtn.setOnClickListener(new EditButtonOnClickListener(context, products.get(position).getId()));
-
-        vh.deleteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+        vh.deleteBtn.setOnClickListener(new DeleteButtonOnClickListener(context, products.get(position).getId(), db));
 
         return row;
     }

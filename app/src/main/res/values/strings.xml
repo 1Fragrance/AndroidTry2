@@ -11,6 +11,10 @@
     <string name="nameValidationMessage">Name field is required</string>
     <string name="costValidationMessage">Cost field is required and cannot be less than null</string>
     <string name="productsTableHeader">Products</string>
+    <string name="deleteSubmitTitle">Are you sure?</string>
+    <string name="deleteSubmitPositiveAnswer">Yes</string>
+    <string name="deleteSubmitNegativeAnswer">No</string>
+    <string name="deleteSubmitNegativeAnswer">No</string>
 
     <array name="productTypes">
         <item>Meat</item>
