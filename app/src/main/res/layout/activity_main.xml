@@ -13,10 +13,9 @@
         android:gravity="center"
         android:paddingTop="5sp"
         android:text="@string/productsTableHeader"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold">
     </TextView>
-
     <Button
         android:id="@+id/addProductButton"
         android:layout_width="match_parent"

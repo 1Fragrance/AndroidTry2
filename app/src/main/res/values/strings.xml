@@ -1,10 +1,24 @@
 <resources>
-
-    <string name="productsTableHeader">Products</string>
-    <string name="idColumnText">Id</string>
-    <string name="nameColumnText">Name</string>
-    <string name="costColumnText">Cost</string>
-    <string name="typeColumnText">Type</string>
-    <string name="actionsColumnText">Actions</string>
+    <string name="product_form_title">Add new product</string>
     <string name="addProductButtonText">Add product</string>
+    <string name="backButtonText">Back</string>
+    <string name="selectTypeLabelText">Select type</string>
+    <string name="deleteButtonText">Delete</string>
+    <string name="editButtonText">Edit</string>
+    <string name="editProductFormTitle">Edit product</string>
+    <string name="productNameHint">Product name</string>
+    <string name="productCostHint">Product cost</string>
+
+    <array name="productTypes">
+        <item>Meat</item>
+        <item>Fruits and vegetables</item>
+        <item>Flavoring goods</item>
+        <item>Edible fats</item>
+        <item>Dairy</item>
+        <item>Confectionery</item>
+        <item>Grain</item>
+        <item>Fish</item>
+        <item>Eggs</item>
+    </array>
+
 </resources>

@@ -1,7 +1,6 @@
 package com.example.androidtry2.data;
 
 import android.content.Context;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -14,7 +13,7 @@ public class DbContext extends SQLiteOpenHelper {
     public static final String PRODUCTS_ID = "id";
     public static final String PRODUCTS_NAME = "subject";
     public static final String PRODUCTS_COST = "cost";
-    public static final String PRODUCTS_TYPE_ID = "typeId";
+    public static final String PRODUCTS_TYPE = "type";
 
     private static final int DATABASE_VERSION = 1;
 
@@ -28,7 +27,7 @@ public class DbContext extends SQLiteOpenHelper {
                                   PRODUCTS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                   PRODUCTS_NAME + " TEXT, " +
                                   PRODUCTS_COST + " REAL, " +
-                                  PRODUCTS_TYPE_ID + " INTEGER);";
+                                  PRODUCTS_TYPE + " TEXT);";
         db.execSQL(initializeScript);
     }
 

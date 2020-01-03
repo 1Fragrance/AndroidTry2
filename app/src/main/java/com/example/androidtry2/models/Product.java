@@ -4,7 +4,7 @@ public class Product {
     private int id;
     private String name;
     private double cost;
-    private int typeId;
+    private String type;
 
     public int getId() {
         return id;
@@ -18,8 +18,8 @@ public class Product {
         return cost;
     }
 
-    public int getTypeId() {
-        return typeId;
+    public String getType() {
+        return type;
     }
 
     public void setId(int id) {
@@ -34,7 +34,7 @@ public class Product {
         this.cost = cost;
     }
 
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
+    public void setType(String type) {
+        this.type = type;
     }
 }
