@@ -1,30 +1,34 @@
 package com.example.androidtry2.data;
 
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.androidtry2.R;
-import com.example.androidtry2.data.repositories.ProductRepository;
 
 public class DbContext extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    // Tables
+    public static final String PRODUCTS_TABLE_NAME = "products";
+    public static final String PRODUCTS_ID = "id";
+    public static final String PRODUCTS_NAME = "subject";
+    public static final String PRODUCTS_COST = "cost";
+    public static final String PRODUCTS_TYPEID = "typeId";
 
-    public ProductRepository products;
+    private static final int DATABASE_VERSION = 1;
 
     public DbContext(Context context) {
         super(context, context.getResources().getString(R.string.db_name), null, DATABASE_VERSION);
-        products = new ProductRepository(this);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String initializeScript = "CREATE TABLE IF NOT EXISTS products ( " +
-                                  "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                  "name TEXT, " +
-                                  "cost REAL, " +
-                                  "typeId INTEGER);";
+        String initializeScript = "CREATE TABLE IF NOT EXISTS " + PRODUCTS_TABLE_NAME + "( " +
+                                  PRODUCTS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                  PRODUCTS_NAME + " TEXT, " +
+                                  PRODUCTS_COST + " REAL, " +
+                                  PRODUCTS_TYPEID + " INTEGER);";
         db.execSQL(initializeScript);
     }
 
@@ -33,5 +37,13 @@ public class DbContext extends SQLiteOpenHelper {
         String downScript = "DROP TABLE IF EXISTS products";
         db.execSQL(downScript);
         onCreate(db);
+    }
+
+    public SQLiteDatabase openConnection() throws SQLException {
+        return this.getWritableDatabase();
+    }
+
+    public void closeConnection() {
+        this.close();
     }
 }

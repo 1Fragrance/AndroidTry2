@@ -37,7 +37,6 @@
                 android:text="@string/addProductButtonText"
                 android:layout_span="5"/>
         </TableRow>
-
         <TableRow
             android:paddingTop="10sp"
             android:layout_width="match_parent"
@@ -48,14 +47,12 @@
                 android:textStyle="bold"
                 android:gravity="center">
             </TextView>
-
             <TextView
                 android:id="@+id/nameColumn"
                 android:text="@string/nameColumnText"
                 android:textStyle="bold"
                 android:gravity="center">
             </TextView>
-
             <TextView
                 android:id="@+id/costColumn"
                 android:text="@string/costColumnText"
