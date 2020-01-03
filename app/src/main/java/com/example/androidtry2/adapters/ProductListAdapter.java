@@ -1,4 +1,4 @@
-package com.example.androidtry2.adapters;
+/*package com.example.androidtry2.adapters;
 import android.app.Activity;
 import android.util.Log;
 import android.view.Gravity;
@@ -85,4 +85,4 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
             });
             return  row;
         }
-}
+}*/
