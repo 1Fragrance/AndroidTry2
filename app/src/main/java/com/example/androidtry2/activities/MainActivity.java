@@ -2,12 +2,14 @@ package com.example.androidtry2.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.androidtry2.R;
 import com.example.androidtry2.adapters.ProductAdapter;
 import com.example.androidtry2.data.DbContext;
 import com.example.androidtry2.data.DbDataSource;
+import com.example.androidtry2.listeners.AddButtonOnClickListener;
 import com.example.androidtry2.models.Product;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class MainActivity extends Activity {
     List<Product> productList;
     ListView productListView;
     ProductAdapter adapter;
+    Button addProductButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,9 @@ public class MainActivity extends Activity {
         productList = db.products.getProducts();
         adapter = new ProductAdapter(this, R.layout.product_row, productList, db);
         productListView.setAdapter(adapter);
+
+        addProductButton = findViewById(R.id.addProductButton);
+        addProductButton.setOnClickListener(new AddButtonOnClickListener(this));
     }
 
     public void updateActivityUI() {

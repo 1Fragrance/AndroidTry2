@@ -1,4 +1,21 @@
 package com.example.androidtry2.listeners;
 
-public class AddButtonOnClickListener {
+import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+
+import com.example.androidtry2.activities.ProjectAddFormActivity;
+
+public class AddButtonOnClickListener implements View.OnClickListener {
+
+    private Activity activity;
+
+    public AddButtonOnClickListener(Activity activity) {
+        this.activity = activity;
+    }
+
+    @Override
+    public void onClick(View v) {
+        activity.startActivity(new Intent(activity, ProjectAddFormActivity.class));
+    }
 }

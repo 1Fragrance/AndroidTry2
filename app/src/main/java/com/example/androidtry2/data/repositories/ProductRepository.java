@@ -26,7 +26,7 @@ public class ProductRepository {
 
         ContentValues cv = new ContentValues();
         cv.put("name", product.getName());
-        cv.put("typeId", product.getType());
+        cv.put("type", product.getType());
         cv.put("cost", product.getCost());
 
         db.insert(this.getDatabaseName(), null, cv);

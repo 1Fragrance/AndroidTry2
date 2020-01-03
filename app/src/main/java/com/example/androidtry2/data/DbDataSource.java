@@ -4,11 +4,9 @@ import com.example.androidtry2.data.repositories.ProductRepository;
 
 public class DbDataSource {
 
-    protected DbContext dbContext;
-
     public DbDataSource(DbContext dbContext) {
-        this.dbContext = dbContext;
+        products = new ProductRepository(dbContext);
     }
 
-    public ProductRepository products = new ProductRepository(dbContext);
+    public ProductRepository products;
 }
