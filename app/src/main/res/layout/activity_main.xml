@@ -17,15 +17,15 @@
         android:textStyle="bold">
     </TextView>
     <Button
-        android:id="@+id/addProductButton"
+        android:id="@+id/productTableAddButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/addProductButtonText"
         android:layout_below="@id/productsTableHeader"/>
 
     <ListView
-        android:id="@+id/productList"
+        android:id="@+id/productTableList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/addProductButton"/>
+        android:layout_below="@id/productTableAddButton"/>
 </RelativeLayout>

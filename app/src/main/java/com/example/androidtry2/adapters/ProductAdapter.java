@@ -51,21 +51,21 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
         if (convertView == null) {
             vh = new ViewHolder();
-            row = inflater.inflate(R.layout.product_row, null, true);
+            row = inflater.inflate(R.layout.product_row, null, false);
 
-            vh.productIdTextView = row.findViewById(R.id.productIdTextView);
-            vh.productNameTextView = row.findViewById(R.id.productNameTextView);
-            vh.productCostTextView = row.findViewById(R.id.productCostTextView);
-            vh.productTypeTextView = row.findViewById(R.id.productTypeTextView);
-            vh.deleteBtn = row.findViewById(R.id.buttonDeleteProduct);
-            vh.editBtn = row.findViewById(R.id.buttonEditProduct);
+            vh.productIdTextView = row.findViewById(R.id.productRowIdView);
+            vh.productNameTextView = row.findViewById(R.id.productRowNameView);
+            vh.productCostTextView = row.findViewById(R.id.productRowCostView);
+            vh.productTypeTextView = row.findViewById(R.id.productRowTypeView);
+            vh.deleteBtn = row.findViewById(R.id.productRowDeleteButton);
+            vh.editBtn = row.findViewById(R.id.productRowEditButton);
             row.setTag(vh);
 
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        vh.productIdTextView.setText(products.get(position).getId());
+        vh.productIdTextView.setText(Integer.toString(products.get(position).getId()));
         vh.productNameTextView.setText(products.get(position).getName());
         vh.productCostTextView.setText(Double.toString(products.get(position).getCost()));
         vh.productTypeTextView.setText(products.get(position).getType());

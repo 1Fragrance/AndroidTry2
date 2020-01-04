@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
-import com.example.androidtry2.activities.ProjectAddFormActivity;
+import com.example.androidtry2.activities.ProductAddFormActivity;
 
 public class AddButtonOnClickListener implements View.OnClickListener {
 
@@ -16,6 +16,6 @@ public class AddButtonOnClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        activity.startActivity(new Intent(activity, ProjectAddFormActivity.class));
+        activity.startActivity(new Intent(activity, ProductAddFormActivity.class));
     }
 }

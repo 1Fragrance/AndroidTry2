@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        productListView = findViewById(R.id.productList);
+        productListView = findViewById(R.id.productTableList);
         productList = new ArrayList<>();
         db = new DbDataSource(new DbContext(this));
         initializeActivityUI();
@@ -39,13 +39,14 @@ public class MainActivity extends Activity {
         productList = db.products.getProducts();
         adapter = new ProductAdapter(this, R.layout.product_row, productList, db);
         productListView.setAdapter(adapter);
-
-        addProductButton = findViewById(R.id.addProductButton);
+        addProductButton = findViewById(R.id.productTableAddButton);
         addProductButton.setOnClickListener(new AddButtonOnClickListener(this));
     }
 
     public void updateActivityUI() {
         productList = db.products.getProducts();
+        adapter.clear();
+        adapter.addAll(productList);
         adapter.notifyDataSetChanged();
     }
 }

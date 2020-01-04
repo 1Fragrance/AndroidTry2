@@ -11,7 +11,7 @@ public class DbContext extends SQLiteOpenHelper {
     // Tables
     public static final String PRODUCTS_TABLE_NAME = "products";
     public static final String PRODUCTS_ID = "id";
-    public static final String PRODUCTS_NAME = "subject";
+    public static final String PRODUCTS_NAME = "name";
     public static final String PRODUCTS_COST = "cost";
     public static final String PRODUCTS_TYPE = "type";
 

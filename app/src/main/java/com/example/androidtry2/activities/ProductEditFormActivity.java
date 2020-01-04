@@ -12,7 +12,9 @@ import com.example.androidtry2.models.Product;
 
 import java.util.Arrays;
 
-public class ProjectEditFormActivity extends ProjectFormActivityBase {
+import static com.example.androidtry2.R.id.editFormIncludedLayout;
+
+public class ProductEditFormActivity extends ProductFormActivityBase {
 
     Button buttonEditProduct;
     Button buttonBack;
@@ -21,17 +23,22 @@ public class ProjectEditFormActivity extends ProjectFormActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.product_edit_form);
+        findViewById(editFormIncludedLayout).setVisibility(View.VISIBLE);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             productId = bundle.getInt(DbContext.PRODUCTS_ID);
 
-            buttonEditProduct = findViewById(R.id.buttonEditProduct);
-            buttonBack = findViewById(R.id.buttonBack);
+            productNameInput = findViewById(editFormIncludedLayout).findViewById(R.id.formNameInput);
+            productCostInput = findViewById(editFormIncludedLayout).findViewById(R.id.formCostInput);
+            productTypeInput = findViewById(editFormIncludedLayout).findViewById(R.id.formTypeInput);
+
+            buttonEditProduct = findViewById(R.id.editFormSubmitButton);
+            buttonBack = findViewById(R.id.editFormBackButton);
             initializeActionHandlers();
             fillInformation();
         }
-        startActivity(new Intent(this, MainActivity.class));
     }
 
     private void fillInformation() {
@@ -60,7 +67,7 @@ public class ProjectEditFormActivity extends ProjectFormActivityBase {
         String cost = productCostInput.getText().toString().trim();
         String type = productTypeInput.getSelectedItem().toString();
 
-        if (validateInputs(name, cost)) {
+        if (validateInputs()) {
             Product product = new Product();
             product.setId(productId);
             product.setName(name);

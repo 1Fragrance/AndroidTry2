@@ -9,7 +9,9 @@ import com.example.androidtry2.R;
 import com.example.androidtry2.listeners.BackButtonOnClickListener;
 import com.example.androidtry2.models.Product;
 
-public class ProjectAddFormActivity extends ProjectFormActivityBase {
+import static com.example.androidtry2.R.id.addFormIncludedLayout;
+
+public class ProductAddFormActivity extends ProductFormActivityBase {
 
     Button buttonAddProduct;
     Button buttonBack;
@@ -17,9 +19,15 @@ public class ProjectAddFormActivity extends ProjectFormActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.product_add_form);
+        findViewById(addFormIncludedLayout).setVisibility(View.VISIBLE);
 
-        buttonAddProduct = findViewById(R.id.addProductButton);
-        buttonBack = findViewById(R.id.buttonBack);
+        productNameInput = findViewById(addFormIncludedLayout).findViewById(R.id.formNameInput);
+        productCostInput = findViewById(addFormIncludedLayout).findViewById(R.id.formCostInput);
+        productTypeInput = findViewById(addFormIncludedLayout).findViewById(R.id.formTypeInput);
+
+        buttonAddProduct = findViewById(R.id.addFormSubmitButton);
+        buttonBack = findViewById(R.id.addFormBackButton);
         initializeActionHandlers();
     }
 
@@ -36,11 +44,11 @@ public class ProjectAddFormActivity extends ProjectFormActivityBase {
     }
 
     private void createProduct() {
-        String name = productNameInput.getText().toString().trim();
-        String cost = productCostInput.getText().toString().trim();
-        String type = productTypeInput.getSelectedItem().toString();
+        String name = getNameValue();
+        String cost = getCostValue();
+        String type = getTypeValue();
 
-        if (validateInputs(name, cost)) {
+        if (validateInputs()) {
             Product product = new Product();
             product.setName(name);
             product.setCost(Double.parseDouble(cost));

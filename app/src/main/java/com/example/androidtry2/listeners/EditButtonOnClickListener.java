@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.example.androidtry2.activities.MainActivity;
-import com.example.androidtry2.activities.ProjectEditFormActivity;
+import com.example.androidtry2.activities.ProductEditFormActivity;
 import com.example.androidtry2.data.DbContext;
 
 public class EditButtonOnClickListener implements View.OnClickListener {
@@ -19,7 +19,7 @@ public class EditButtonOnClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(context, ProjectEditFormActivity.class);
+        Intent intent = new Intent(context, ProductEditFormActivity.class);
         intent.putExtra(DbContext.PRODUCTS_ID, productId);
         context.startActivity(intent);
     }

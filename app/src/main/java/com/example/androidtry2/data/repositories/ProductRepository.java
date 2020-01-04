@@ -25,9 +25,9 @@ public class ProductRepository {
         SQLiteDatabase db = dbContext.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put("name", product.getName());
-        cv.put("type", product.getType());
-        cv.put("cost", product.getCost());
+        cv.put(DbContext.PRODUCTS_NAME, product.getName());
+        cv.put(DbContext.PRODUCTS_TYPE, product.getType());
+        cv.put(DbContext.PRODUCTS_COST, product.getCost());
 
         db.insert(this.getDatabaseName(), null, cv);
         db.close();
@@ -90,9 +90,9 @@ public class ProductRepository {
         SQLiteDatabase db = dbContext.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put("name", product.getName());
-        cv.put("typeId", product.getType());
-        cv.put("cost", product.getCost());
+        cv.put(DbContext.PRODUCTS_NAME, product.getName());
+        cv.put(DbContext.PRODUCTS_TYPE, product.getType());
+        cv.put(DbContext.PRODUCTS_COST, product.getCost());
 
         db.update(this.getDatabaseName(), cv, DbContext.PRODUCTS_ID + " = ?", new String[] { String.valueOf(product.getId()) });
     }

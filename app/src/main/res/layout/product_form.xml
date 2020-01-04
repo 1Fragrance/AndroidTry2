@@ -10,13 +10,13 @@
         android:layout_centerVertical="true"
         android:orientation="vertical">
         <EditText
-            android:id="@+id/productNameInput"
+            android:id="@+id/formNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/productNameHint"
             android:inputType="text"/>
         <EditText
-            android:id="@+id/productCostInput"
+            android:id="@+id/formCostInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/productCostHint"
@@ -27,7 +27,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/selectTypeLabelText" />
         <Spinner
-            android:id="@+id/productTypeInput"
+            android:id="@+id/formTypeInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/productTypes" />
