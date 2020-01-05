@@ -1,5 +1,6 @@
 package com.example.androidtry2.models;
 
+// NOTE: Product model
 public class Product {
     private int id;
     private String name;

@@ -7,6 +7,7 @@ import com.example.androidtry2.activities.MainActivity;
 import com.example.androidtry2.activities.ProductEditFormActivity;
 import com.example.androidtry2.data.DbContext;
 
+// NOTE: Product row edit button listener
 public class EditButtonOnClickListener implements View.OnClickListener {
 
     private MainActivity context;

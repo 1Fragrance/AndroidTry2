@@ -8,6 +8,7 @@ import com.example.androidtry2.R;
 import com.example.androidtry2.activities.MainActivity;
 import com.example.androidtry2.data.DbDataSource;
 
+// NOTE: Product row delete button listener
 public class DeleteButtonOnClickListener implements View.OnClickListener {
 
     private MainActivity context;

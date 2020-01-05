@@ -18,6 +18,7 @@ import com.example.androidtry2.models.Product;
 
 import java.util.List;
 
+// NOTE: Product list adapter
 public class ProductAdapter extends ArrayAdapter<Product> {
 
     private MainActivity context;
@@ -32,6 +33,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         this.db = db;
     }
 
+    // NOTE: Product row view holder
     public static class ViewHolder
     {
         TextView productIdTextView;
@@ -42,6 +44,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         Button editBtn;
     }
 
+    // NOTE: Describes mapping between row elements and data from database
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {

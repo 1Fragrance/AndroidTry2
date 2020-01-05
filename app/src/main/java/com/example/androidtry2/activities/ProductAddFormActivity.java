@@ -11,11 +11,13 @@ import com.example.androidtry2.models.Product;
 
 import static com.example.androidtry2.R.id.addFormIncludedLayout;
 
+// NOTE: Add product form activity handler
 public class ProductAddFormActivity extends ProductFormActivityBase {
 
     private Button buttonAddProduct;
     private Button buttonBack;
 
+    // NOTE: Executes on activity creating
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class ProductAddFormActivity extends ProductFormActivityBase {
         initializeActionHandlers();
     }
 
+    // NOTE: Set buttons handlers
     protected void initializeActionHandlers() {
         buttonAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +48,7 @@ public class ProductAddFormActivity extends ProductFormActivityBase {
         buttonBack.setOnClickListener(new BackButtonOnClickListener(this));
     }
 
+    // NOTE: Create product submit logic
     private boolean createProduct() {
         String name = getNameValue();
         String cost = getCostValue();

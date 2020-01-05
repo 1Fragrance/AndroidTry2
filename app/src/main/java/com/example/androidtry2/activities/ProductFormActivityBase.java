@@ -9,6 +9,7 @@ import com.example.androidtry2.R;
 import com.example.androidtry2.data.DbContext;
 import com.example.androidtry2.data.DbDataSource;
 
+// NOTE: Base form activity class. Describes form inputs.
 public abstract class ProductFormActivityBase extends Activity {
 
     protected DbDataSource db;
@@ -18,6 +19,7 @@ public abstract class ProductFormActivityBase extends Activity {
 
     protected abstract void initializeActionHandlers();
 
+    // NOTE: Executes on activity creating
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public abstract class ProductFormActivityBase extends Activity {
         db = new DbDataSource(new DbContext(this));
     }
 
+    // NOTE: Input getters
     protected String getNameValue()
     {
         return productNameInput.getText().toString().trim();
@@ -41,6 +44,7 @@ public abstract class ProductFormActivityBase extends Activity {
         return productTypeInput.getSelectedItem().toString();
     }
 
+    // NOTE: Inputs validation
     protected boolean validateInputs() {
         if (getNameValue().isEmpty()) {
             productNameInput.setError(getString(R.string.nameValidationMessage));

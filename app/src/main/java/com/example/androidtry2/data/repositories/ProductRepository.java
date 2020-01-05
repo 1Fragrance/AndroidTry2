@@ -10,6 +10,7 @@ import com.example.androidtry2.models.Product;
 import java.util.ArrayList;
 import java.util.List;
 
+// NOTE: Product entity repository. Contains all methods to work with product table in db
 public class ProductRepository {
 
     private DbContext dbContext;
@@ -33,6 +34,7 @@ public class ProductRepository {
         db.close();
     }
 
+    // NOTE: Select all products from table
     public List<Product> getProducts() {
         SQLiteDatabase db = dbContext.getWritableDatabase();
         String selectQuery = "SELECT  * FROM " + this.getDatabaseName();
@@ -57,6 +59,7 @@ public class ProductRepository {
         return products;
     }
 
+    // NOTE: Get product by id
     public Product getProduct(int id) {
         SQLiteDatabase db = dbContext.getReadableDatabase();
 
@@ -81,12 +84,14 @@ public class ProductRepository {
         return product;
     }
 
+    // NOTE: Delete product by id
     public void deleteProduct(int id) {
         SQLiteDatabase db = dbContext.getWritableDatabase();
         db.delete(this.getDatabaseName(), DbContext.PRODUCTS_ID + " = ?", new String[] { String.valueOf(id) });
         db.close();
     }
 
+    // NOTE: Update product by id
     public void updateProduct(Product product) {
         SQLiteDatabase db = dbContext.getWritableDatabase();
 

@@ -14,12 +14,14 @@ import java.util.Arrays;
 
 import static com.example.androidtry2.R.id.editFormIncludedLayout;
 
+// NOTE: Edit product form activity handler
 public class ProductEditFormActivity extends ProductFormActivityBase {
 
     private Button buttonEditProduct;
     private Button buttonBack;
     private int productId;
 
+    // NOTE: Executes on activity creating
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,7 @@ public class ProductEditFormActivity extends ProductFormActivityBase {
         }
     }
 
+    // NOTE: Fill information on page opening
     private void fillInformation() {
         Product product = db.products.getProduct(productId);
 
@@ -50,6 +53,7 @@ public class ProductEditFormActivity extends ProductFormActivityBase {
         productTypeInput.setSelection(Arrays.asList(types).indexOf(product.getType()));
     }
 
+    // NOTE: Set buttons handlers
     protected void initializeActionHandlers() {
         buttonEditProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +68,7 @@ public class ProductEditFormActivity extends ProductFormActivityBase {
         buttonBack.setOnClickListener(new BackButtonOnClickListener(this));
     }
 
+    // NOTE: Edit button submit logic
     private boolean editProduct() {
         String name = productNameInput.getText().toString().trim();
         String cost = productCostInput.getText().toString().trim();

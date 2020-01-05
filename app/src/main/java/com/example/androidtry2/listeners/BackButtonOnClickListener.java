@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.androidtry2.activities.MainActivity;
 
+// NOTE: Form back button listener
 public class BackButtonOnClickListener implements View.OnClickListener {
 
     private Activity activity;
