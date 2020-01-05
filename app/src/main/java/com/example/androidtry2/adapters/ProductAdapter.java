@@ -65,7 +65,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        vh.productIdTextView.setText(Integer.toString(products.get(position).getId()));
+        vh.productIdTextView.setText(String.format("%s. ", Integer.toString(products.get(position).getId())));
         vh.productNameTextView.setText(products.get(position).getName());
         vh.productCostTextView.setText(Double.toString(products.get(position).getCost()));
         vh.productTypeTextView.setText(products.get(position).getType());
