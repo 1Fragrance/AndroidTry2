@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ProductRepository {
 
-    DbContext dbContext;
+    private DbContext dbContext;
     public ProductRepository(DbContext dbContext) {
         this.dbContext = dbContext;
     }
@@ -65,17 +65,18 @@ public class ProductRepository {
                 DbContext.PRODUCTS_ID + "= ?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
 
+        Product product = new Product();
         if (cursor != null) {
             cursor.moveToFirst();
+
+            product.setId(cursor.getInt(0));
+            product.setName(cursor.getString(1));
+            product.setCost(cursor.getDouble(2));
+            product.setType(cursor.getString(3));
+
+            cursor.close();
         }
 
-        Product product = new Product();
-        product.setId(cursor.getInt(0));
-        product.setName(cursor.getString(1));
-        product.setCost(cursor.getDouble(2));
-        product.setType(cursor.getString(3));
-
-        cursor.close();
         db.close();
         return product;
     }

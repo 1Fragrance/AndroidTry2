@@ -11,10 +11,10 @@ import com.example.androidtry2.data.DbDataSource;
 
 public abstract class ProductFormActivityBase extends Activity {
 
-    DbDataSource db;
-    EditText productNameInput;
-    EditText productCostInput;
-    Spinner productTypeInput;
+    protected DbDataSource db;
+    protected EditText productNameInput;
+    protected EditText productCostInput;
+    protected Spinner productTypeInput;
 
     protected abstract void initializeActionHandlers();
 

@@ -13,8 +13,8 @@ import static com.example.androidtry2.R.id.addFormIncludedLayout;
 
 public class ProductAddFormActivity extends ProductFormActivityBase {
 
-    Button buttonAddProduct;
-    Button buttonBack;
+    private Button buttonAddProduct;
+    private Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +35,17 @@ public class ProductAddFormActivity extends ProductFormActivityBase {
         buttonAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createProduct();
-                startActivity(new Intent(v.getContext(), MainActivity.class));
+                boolean isSuccess = createProduct();
+                if(isSuccess) {
+                    startActivity(new Intent(v.getContext(), MainActivity.class));
+                }
             }
         });
 
         buttonBack.setOnClickListener(new BackButtonOnClickListener(this));
     }
 
-    private void createProduct() {
+    private boolean createProduct() {
         String name = getNameValue();
         String cost = getCostValue();
         String type = getTypeValue();
@@ -54,6 +56,9 @@ public class ProductAddFormActivity extends ProductFormActivityBase {
             product.setCost(Double.parseDouble(cost));
             product.setType(type);
             db.products.addProduct(product);
+            return true;
         }
+
+        return false;
     }
 }

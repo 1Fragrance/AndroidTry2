@@ -1,33 +1,38 @@
 package com.example.androidtry2.activities;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.androidtry2.R;
 import com.example.androidtry2.adapters.ProductAdapter;
 import com.example.androidtry2.data.DbContext;
 import com.example.androidtry2.data.DbDataSource;
-import com.example.androidtry2.listeners.AddButtonOnClickListener;
 import com.example.androidtry2.models.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
-    DbDataSource db;
-    List<Product> productList;
-    ListView productListView;
-    ProductAdapter adapter;
-    Button addProductButton;
+    private DbDataSource db;
+    private List<Product> productList;
+    private ListView productListView;
+    private ProductAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         productListView = findViewById(R.id.productTableList);
         productList = new ArrayList<>();
@@ -39,8 +44,6 @@ public class MainActivity extends Activity {
         productList = db.products.getProducts();
         adapter = new ProductAdapter(this, R.layout.product_row, productList, db);
         productListView.setAdapter(adapter);
-        addProductButton = findViewById(R.id.productTableAddButton);
-        addProductButton.setOnClickListener(new AddButtonOnClickListener(this));
     }
 
     public void updateActivityUI() {
@@ -48,5 +51,22 @@ public class MainActivity extends Activity {
         adapter.clear();
         adapter.addAll(productList);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.productTableAddButton) {
+            this.startActivity(new Intent(this, ProductAddFormActivity.class));
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

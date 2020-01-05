@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="product_form_title">Создание нового продукта</string>
+    <string name="addProductButtonText">Добавить</string>
+    <string name="backButtonText">Назад</string>
+    <string name="selectTypeLabelText">Выберите тип</string>
+    <string name="deleteButtonText">Удалить</string>
+    <string name="editButtonText">Изменить</string>
+    <string name="editProductFormTitle">Изменение данных о продукте</string>
+    <string name="productNameHint">Название</string>
+    <string name="productCostHint">Стоимость</string>
+    <string name="nameValidationMessage">Поле обязательно</string>
+    <string name="costValidationMessage">Поле обязательно</string>
+    <string name="productsTableHeader">Список продуктов</string>
+    <string name="deleteSubmitTitle">Вы уверены?</string>
+    <string name="deleteSubmitPositiveAnswer">Да</string>
+    <string name="deleteSubmitNegativeAnswer">Нет</string>
+    <string name="updateProductButtonText">Изменить</string>
+    <string name="applicationTitle">Список продуктов</string>
+
+    <array name="productTypes">
+        <item>Мясо</item>
+        <item>Фрукты и овощи</item>
+        <item>Вкусовые товары</item>
+        <item>Пищевые жиры</item>
+        <item>Молочные продукты</item>
+        <item>Кондитерские изделия</item>
+        <item>Зерновые</item>
+        <item>Рыба</item>
+        <item>Яйца</item>
+    </array>
+</resources>

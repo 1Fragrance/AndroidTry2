@@ -16,8 +16,8 @@ import static com.example.androidtry2.R.id.editFormIncludedLayout;
 
 public class ProductEditFormActivity extends ProductFormActivityBase {
 
-    Button buttonEditProduct;
-    Button buttonBack;
+    private Button buttonEditProduct;
+    private Button buttonBack;
     private int productId;
 
     @Override
@@ -54,15 +54,17 @@ public class ProductEditFormActivity extends ProductFormActivityBase {
         buttonEditProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editProduct();
-                startActivity(new Intent(v.getContext(), MainActivity.class));
+                boolean isSuccess = editProduct();
+                if(isSuccess) {
+                    startActivity(new Intent(v.getContext(), MainActivity.class));
+                }
             }
         });
 
         buttonBack.setOnClickListener(new BackButtonOnClickListener(this));
     }
 
-    private void editProduct() {
+    private boolean editProduct() {
         String name = productNameInput.getText().toString().trim();
         String cost = productCostInput.getText().toString().trim();
         String type = productTypeInput.getSelectedItem().toString();
@@ -74,6 +76,9 @@ public class ProductEditFormActivity extends ProductFormActivityBase {
             product.setCost(Double.parseDouble(cost));
             product.setType(type);
             db.products.updateProduct(product);
+            return true;
         }
+
+        return false;
     }
 }

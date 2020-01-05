@@ -6,26 +6,13 @@
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
-    <TextView
-        android:id="@+id/productsTableHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="5sp"
-        android:text="@string/productsTableHeader"
-        android:textSize="22sp"
-        android:textStyle="bold">
-    </TextView>
-    <Button
-        android:id="@+id/productTableAddButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/addProductButtonText"
-        android:layout_below="@id/productsTableHeader"/>
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <ListView
         android:id="@+id/productTableList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/productTableAddButton"/>
+        android:layout_below="@id/toolbar"/>
 </RelativeLayout>
